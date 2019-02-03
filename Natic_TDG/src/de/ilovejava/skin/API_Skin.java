@@ -60,7 +60,7 @@ public class API_Skin {
                                 }
                         }
                 } catch (Exception e) {
-                        ; // Failed to load skin
+                        e.printStackTrace();
                 }
         }
        

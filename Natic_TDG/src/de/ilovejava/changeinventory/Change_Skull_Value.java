@@ -8,15 +8,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+
 import de.ilovejava.api.API_AnvilGUI;
 import de.ilovejava.api.API_AnvilGUI.AnvilClickEvent;
 import de.ilovejava.api.API_AnvilGUI.AnvilClickEventHandler;
 import de.ilovejava.api.API_AnvilGUI.AnvilSlot;
 import de.ilovejava.command.subcommands.Sub_Command_Change;
 import de.ilovejava.enums.Enum_MessageEnum;
-import de.ilovejava.skin.API_Skin;
+import de.ilovejava.json.JSON_Repeter;
 import de.ilovejava.utils.Util_Utils;
-import de.ilovejava.uuid.uuidfetcher;
 
 public class Change_Skull_Value {
 	public static Integer item;
@@ -47,9 +47,9 @@ public class Change_Skull_Value {
 	private void setSkinValue(Player p, String name) {
 		File f = new File("plugins/NaticDTG/database", Sub_Command_Change.Name+".yml");
 		if(f.exists()) {
-			API_Skin skin = new API_Skin(uuidfetcher.getUUID(name).toString());
 			YamlConfiguration cfg = YamlConfiguration.loadConfiguration(f);
-			cfg.set("Config."+item+".SkinValue", skin.getSkinValue());
+			JSON_Repeter jr = new JSON_Repeter(name);
+			cfg.set("Config."+item+".SkinValue", jr.getSkinUrl());
 			try {cfg.save(f);}catch(Exception e) {e.printStackTrace();}
 			p.sendMessage(Util_Utils.getPrefix() + Enum_MessageEnum.TDG_SUC_CHANGE.getMessage());
 		}else {
