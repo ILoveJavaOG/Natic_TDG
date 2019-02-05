@@ -15,4 +15,10 @@ public class Util_Utils {
 	public static String prefix;
 	@Getter @Setter
 	public static boolean protocollib;
+	@Getter @Setter
+	public static Integer resourceID;
+	@Getter @Setter
+	public static boolean resourceCheck;
+	@Getter @Setter
+	public static String permission;
 }

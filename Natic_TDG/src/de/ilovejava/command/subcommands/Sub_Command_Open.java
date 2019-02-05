@@ -48,9 +48,9 @@ public class Sub_Command_Open {
 							if(cfg.getString("Config."+s+".ItemType").equalsIgnoreCase("ITEMTYPE_BLOCKS")) {
 								api.addIcon(p, API_TDG.setPosition(loc, getXPosition(s, cfg), getYPosition(s, cfg), x1, x2, x3, x4, x5, x6, x7, x8, x9), getName(s, cfg), new ItemStack(getItemMaterial(s, cfg)), getYPosition(s, cfg));
 							}else if(cfg.getString("Config."+s+".ItemType").equalsIgnoreCase("ITEMTYPE_TOOLS")) {
-								api.addIcon(p, API_TDG.setPosition(loc, getXPosition(s, cfg), getYPosition(s, cfg), x1, x2, x3, x4, x5, x6, x7, x8, x9), name, new ItemStack(getItemMaterial(s, cfg)), true, true, getYPosition(s, cfg));
+								api.addIcon(p, API_TDG.setPosition(loc, getXPosition(s, cfg), getYPosition(s, cfg), x1, x2, x3, x4, x5, x6, x7, x8, x9), getName(s, cfg), new ItemStack(getItemMaterial(s, cfg)), true, true, getYPosition(s, cfg));
 							}else if(cfg.getString("Config."+s+".ItemType").equalsIgnoreCase("ITEMTYPE_SKULLS")) {
-								api.addIcon(p, API_TDG.setPosition(loc, getXPosition(s, cfg), getXPosition(s, cfg), x1, x2, x3, x4, x5, x6, x7, x8, x9), name, cfg.getString("Config."+s+".SkinValue"), getYPosition(s, cfg));
+								api.addIcon(p, API_TDG.setPosition(loc, getXPosition(s, cfg), getXPosition(s, cfg), x1, x2, x3, x4, x5, x6, x7, x8, x9), getName(s, cfg), cfg.getString("Config."+s+".SkinValue"), getYPosition(s, cfg));
 							}
 						}else {
 							api.addIcon(p, API_TDG.setPosition(loc, getXPosition(s, cfg), getYPosition(s, cfg), x1, x2, x3, x4, x5, x6, x7, x8, x9), getName(s, cfg), new ItemStack(getItemMaterial(s, cfg)), getYPosition(s, cfg));

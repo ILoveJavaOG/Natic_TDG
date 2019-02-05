@@ -10,9 +10,12 @@ public class Config_Section {
 		keySet("Config.GUI.SaveData", "{file}.yml");
 		keySet("Config.Command.natic", "NaticTDG");
 		keySet("Config.Command.Permission", "NaticTDG.*");
+		keySet("Config.Update.Version", 64514);
+		keySet("Config.Update.check", true);
 		
-		
-		
+		Util_Utils.setPermission(Util_Utils.getCfg().getString("Config.Command.Permission"));
+		Util_Utils.setResourceCheck(Util_Utils.getCfg().getBoolean("Config.Update.check"));
+		Util_Utils.setResourceID(Util_Utils.getCfg().getInt("Config.Update.Version"));
 		Util_Utils.setPrefix(ChatColor.translateAlternateColorCodes('&', Util_Utils.getCfg().getString("Config.Prefix")));
 	}
 	

@@ -11,8 +11,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import de.ilovejava.enums.Enum_MessageEnum;
 import de.ilovejava.tdgapi.API_TDG;
 import de.ilovejava.tdgsavestock.Util_SaveStock;
+import de.ilovejava.utils.Util_Utils;
 import net.md_5.bungee.api.ChatColor;
 
 public class Event_TDG_InterAcct implements Listener {
@@ -31,6 +33,12 @@ public class Event_TDG_InterAcct implements Listener {
 							if(cfg.isSet("Config."+s+".Name")) {
 								String configName = ChatColor.translateAlternateColorCodes('&', cfg.getString("Config."+s+".Name"));
 								if(configName.equalsIgnoreCase(name)) {
+									if(cfg.isSet("Config."+s+".Permission")) {
+										if(!p.hasPermission(cfg.getString("Config."+s+".Permission"))) {
+											p.sendMessage(Util_Utils.getPrefix() + Enum_MessageEnum.No_Perm.getMessage());
+											return;
+										}
+									}
 									if(cfg.isSet("Config."+s+".Action")) {
 										subAction(p, cfg.getString("Config."+s+".Action"), cfg, s);
 									}

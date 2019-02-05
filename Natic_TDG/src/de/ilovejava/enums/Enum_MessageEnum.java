@@ -7,7 +7,8 @@ public enum Enum_MessageEnum {
 	TDG_Create("§aThe TDG was Created"),
 	TDG_NOT_EXISTS("§cThis TDG is Not Exists"),
 	TDG_SUC_CHANGE("§aThe TDG was Changed"),
-	TDG_SUC_DELETE("§cThe TDG was delet");
+	TDG_SUC_DELETE("§cThe TDG was delet"),
+	TDG_NEW_VERSION("§cTDG has a New Version:");
 	
 	String msg;
 	

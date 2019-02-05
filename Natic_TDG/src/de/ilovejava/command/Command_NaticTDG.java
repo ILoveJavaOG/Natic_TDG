@@ -20,28 +20,38 @@ public class Command_NaticTDG extends AbstartcCommands{
 	@Override
 	public boolean command(CommandSender sender, String[] args) {
 		Player p = (Player) sender;
-		if(p.hasPermission(Util_Utils.getCfg().getString("Config.Command.Permission"))) {
 			switch(args.length) {
 				case 0 :
+					if(p.hasPermission(Util_Utils.getCfg().getString("Config.Command.Permission"))) {
 					p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b create {Name}");
-					p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b open {Name}");
 					p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b delete {Name}");
 					p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b chage {Name}");
+					}else {
+						p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b open {Name}");
+					}
 				break;
 				case 1 :
-					p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b create {Name}");
-					p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b open {Name}");
-					p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b delete {Name}");
-					p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b chage {Name}");
+					if(p.hasPermission(Util_Utils.getCfg().getString("Config.Command.Permission"))) {
+						p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b create {Name}");
+						p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b delete {Name}");
+						p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b chage {Name}");
+						}else {
+							p.sendMessage("§b/"+Util_Utils.getCfg().getString("Config.Command.natic") + "§b open {Name}");
+						}
 				break;
 				case 2 :
-					subCommand(p, args);
+					if(args[0].equalsIgnoreCase("open")) {
+						subCommand(p, args);
+					}else {
+						if(p.hasPermission(Util_Utils.getCfg().getString("Config.Command.Permission"))) {
+							subCommand(p, args);
+						}else {p.sendMessage(Util_Utils.getPrefix() + Enum_MessageEnum.No_Perm.getMessage());}
+					}
 				break;
 				case 3 :
 					p.sendMessage(Util_Utils.getPrefix() + Enum_MessageEnum.No_Args.getMessage());
 				break;
 			}
-		}else {p.sendMessage(Util_Utils.getPrefix() + Enum_MessageEnum.No_Perm.getMessage());}
 		return true;
 	}
 	
